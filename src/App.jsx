@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3001", { autoConnect: false });
+const socket = io(import.meta.env.VITE_SOCKET_URL ?? "http://localhost:3001", {
+  autoConnect: false,
+});
 
 function getInitialName() {
   try {
